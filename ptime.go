@@ -750,6 +750,14 @@ func (t Time) LastWeekday() Time {
 	return t.AddDate(0, 0, int(Jomeh-t.wday))
 }
 
+func (t Time) StartOfDay() Time {
+	return Date(t.year, t.month, t.day, 0, 0, 0, 0, t.loc)
+}
+
+func (t Time) EndOfDay() Time {
+	return Date(t.year, t.month, t.day, 23, 59, 59, 999999999, t.loc)
+}
+
 // BeginningOfMonth returns a new instance of Time representing the first day of the month of t.
 // The time is reset to 00:00:00
 func (t Time) BeginningOfMonth() Time {
