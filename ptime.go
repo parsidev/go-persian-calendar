@@ -756,6 +756,10 @@ func (t Time) BeginningOfMonth() Time {
 	return Date(t.year, t.month, 1, 0, 0, 0, 0, t.loc)
 }
 
+func (t Time) EndOfMonth() Time {
+	return Date(t.year, t.month+1, 0, 23, 59, 59, 999999999, t.loc)
+}
+
 // FirstMonthDay returns a new instance of Time representing the first day of the month of t.
 func (t Time) FirstMonthDay() Time {
 	if t.day == 1 {
